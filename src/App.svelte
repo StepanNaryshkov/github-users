@@ -1,11 +1,10 @@
 <script>
-	export let name;
+  import { Router, Link, Route } from "svelte-routing";
+  import Main from "./screens/Main.svelte";
+   import Home from "./screens/Home.svelte";
 </script>
 
-<style>
-	h1 {
-		color: purple;
-	}
-</style>
-
-<h1>Hello {name}!</h1>
+<Router>
+  <Route path="/"><Main /></Route>
+  <Route path="/home"><Home /></Route>
+</Router>
