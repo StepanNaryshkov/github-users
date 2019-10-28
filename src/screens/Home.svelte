@@ -1,5 +1,5 @@
 <script>
-	export let name;
+	import { email } from '../store';
 </script>
 
 <style>
@@ -9,3 +9,5 @@
 </style>
 
 <h1>Hello home!</h1>
+<a href="/">root</a>
+<button on:click={() => email.set('')}>clear email</button>
