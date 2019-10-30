@@ -2,19 +2,19 @@
     import { Router, Route, Protected, Redirect } from 'swheel';
     import Home from '../screens/Home.svelte';
     import Main from '../screens/Main.svelte';
-    import { email } from '../store';
+    import { username } from '../store/profile';
 </script>
 
 
 <Router>
-  <Protected when={$email}>
+  <Protected when={$username}>
     <Route path="/home" >
       <Home />
     </Route>
     <Redirect to='/home' />
   </Protected>
 
-  <Protected when={!$email}>
+  <Protected when={!$username}>
     <Route path="/"  exact={true}>
       <Main />
     </Route>
