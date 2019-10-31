@@ -1,10 +1,10 @@
-import App from './routing/App.svelte';
+import App from './routing/App.svelte'
 
 const app = new App({
-	target: document.body,
-	props: {
-		name: 'world'
-	}
-});
+  target: document.body,
+  props: {
+    name: 'world',
+  },
+})
 
-export default app;
+export default app

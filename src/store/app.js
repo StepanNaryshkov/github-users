@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable } from 'svelte/store'
 
-export const isFetching = writable(false);
-export const error = writable('');
+export const isFetching = writable(false)
+export const error = writable('')
