@@ -1,6 +1,7 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
+  "homepage": "https://stepannaryshkov.github.io/movie-api/",
   "author": {
     "name": "Stepan Naryshkov",
     "email": "stepan.naryshkov@gmail.com"
