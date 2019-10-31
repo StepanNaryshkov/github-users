@@ -1,5 +1,8 @@
 <script>
-	import { email } from '../store';
+	import { onMount } from 'svelte';
+	import { username, info, isFetching, error } from '../store/profile';
+	import { getUsers } from '../api'
+	onMount(() => getUsers($username))
 </script>
 
 <style>
@@ -7,7 +10,7 @@
 		color: purple;
 	}
 </style>
-
-<h1>Hello home!</h1>
-<a href="/">root</a>
-<button on:click={() => email.set('')}>clear email</button>
+<!--<button on:click={() => profile.set(defaultValues)}>EXIT</button>-->
+<h1>Hello home {$info.bio}</h1>
+<span>{$isFetching}</span>
+<h2>{$error}</h2>
