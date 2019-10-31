@@ -1,17 +1,20 @@
-import { info, isFetching, error } from '../store/profile';
+import { film } from '../store/film';
+import { error, isFetching } from '../store/app';
 
-export async function getUsers(username) {
+const url = 'http://www.omdbapi.com/?apikey=c411534d&'; // to generate a key please use http://www.omdbapi.com/
+
+export async function getFilm(searchTerm) {
   isFetching.set(true);
   try {
-    let response = await fetch('https://api.github.com/users/' + username, {
+    let response = await fetch(`${url}&t=${searchTerm}`, {
       method: 'GET'
     });
-    let profile = await response.json();
+    let result = await response.json();
 
-    if (response.status === 200) {
-      info.set(profile);
+    if (response.status === 200 && !result.Error) {
+      film.set(result);
     } else {
-      error.set(e.statusText);
+      error.set(result.Error);
     }
 
     isFetching.set(false);
