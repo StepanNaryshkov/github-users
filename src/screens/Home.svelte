@@ -1,28 +1,55 @@
 <script>
-  import { onMount } from 'svelte';
-	import { username } from '../store/profile';
 	import { film } from '../store/film';
-	import { error } from '../store/app';
 	import { getFilm } from '../api'
 
-  onMount(() => getFilm('b'))
     let _filmName = '';
+
     function handleSubmit() {
       getFilm(_filmName);
+      _filmName = '';
     }
 </script>
 
+<div class="wrap">
+  <form on:submit|preventDefault={handleSubmit}>
+    <label for="filmName" class="label">Please, type a name of the film</label>
+    <input bind:value={_filmName} id="filmName">
+    <input type="submit" value="Submit" class="btn">
+  </form>
+    {#if $film.Title}
+        <article class="film">
+          <header class="header">
+            <img class="img" src={$film.Poster} alt={$film.Title} height="80" width="80">
+            <h2 class="title">{$film.Title}</h2>
+          </header>
+          <p>{$film.Plot}</p>
+          <table class="table">
+            <tbody>
+            <tr>
+              <th class="th">Starring:</th>
+              <td>{$film.Actors}</td>
+            </tr>
+            <tr>
+              <th class="th">Production company:</th>
+              <td>{$film.Production}</td>
+            </tr>
+            <tr>
+              <th class="th">Release date:</th>
+              <td>{$film.Released}</td>
+            </tr>
+            </tbody>
+          </table>
+        </article>
+    {/if}
+</div>
 <style>
-  div {
+  .wrap {
     max-width: 1200px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-	}
-  :global(body) {
-    background-color: #f5f5f5;
   }
-  img {
+  .img {
     border-radius: 50%;
     margin-right: 20px;
   }
@@ -31,42 +58,33 @@
     box-shadow: 10px 10px 10px 0 rgba(86,91,119,.04);
     padding: 25px;
     border-radius: 9px;
-    cursor: pointer;
   }
-
-  .film__title {
+  .title {
     margin-top: 0;
     margin-bottom: 0;
   }
-
-  .film__header {
+  .header {
     display: flex;
     align-items: center;
   }
+  .table {
+    text-align: left;
+  }
+  .th {
+    padding-right: 20px;
+  }
+  .btn {
+    color: #fff;
+    background-color: #1976d2;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+  }
 </style>
-<!--<button on:click={() => profile.set(defaultValues)}>EXIT</button>-->
-
-<div>
-  <h1>Hello {$username}</h1>
-  <form on:submit|preventDefault={handleSubmit}>
-    <label for="filmName" class="label">Please type a name of the film which you want to show</label>
-    <input bind:value={_filmName} id="filmName">
-    <input type="submit" value="Submit" class="btn">
-  </form>
-    {#if $film.Title}
-        <article class="film">
-          <header class="film__header">
-            <img src={$film.Poster} alt={$film.Title} height="80" width="80">
-            <h2 class="film__title">{$film.Title}</h2>
-          </header>
-          <div>
-            <p>{$film.Plot}</p>
-            <span>{$film.Actors}</span>
-            <span>{$film.Language}</span>
-            <span>{$film.Production}</span>
-            <span>{$film.Released}</span>
-          </div>
-        </article>
-    {/if}
-  <span>{$error}</span>
-</div>

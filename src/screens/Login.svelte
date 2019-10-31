@@ -9,7 +9,7 @@
 
 <form on:submit|preventDefault={handleSubmit} class="form">
 	<div class="icon">
-		<svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+		<svg class="svg" viewBox="0 0 24 24" width="24" height="24">
 			<g fill="none">
 				<path d="M0 0h24v24H0V0z"></path>
 				<path d="M0 0h24v24H0V0z" opacity=".87"></path>
@@ -31,7 +31,7 @@
 		align-items: center;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 25%;
+		margin-top: 10%;
 	}
 	.label {
 		font-size: 1rem;
@@ -72,13 +72,9 @@
 		justify-content: center;
 		margin-bottom: 15px;
 	}
-	.icon svg {
+	.svg {
 		fill: currentColor;
-		width: 1em;
-		height: 1em;
 		display: inline-block;
-		font-size: 1.5rem;
-		flex-shrink: 0;
 		user-select: none;
 	}
 	.btn {
