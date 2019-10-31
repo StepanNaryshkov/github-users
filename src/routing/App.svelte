@@ -1,7 +1,7 @@
 <script>
     import { Router, Route, Protected, Redirect } from 'swheel';
     import Home from '../screens/Home.svelte';
-    import Main from '../screens/Main.svelte';
+    import Login from '../screens/Login.svelte';
     import { username } from '../store/profile';
 </script>
 
@@ -16,8 +16,14 @@
 
   <Protected when={!$username}>
     <Route path="/"  exact={true}>
-      <Main />
+      <Login />
     </Route>
     <Redirect to="/" />
   </Protected>
 </Router>
+
+<style>
+  :global(body) {
+    box-sizing: border-box;
+  }
+</style>
