@@ -7,13 +7,16 @@
 
 
 <Router>
-  <Protected when={$username}>
-    <Route path="/home" >
-      <Home />
-    </Route>
-    <Redirect to='/home' />
-  </Protected>
-
+<!--  <Protected when={$username}>-->
+<!--    <Route path="/home" >-->
+<!--      <Home />-->
+<!--    </Route>-->
+<!--    <Redirect to='/home' />-->
+<!--  </Protected>-->
+  <Route path="/home" >
+    <Home />
+  </Route>
+  <Redirect to='/home' />
   <Protected when={!$username}>
     <Route path="/"  exact={true}>
       <Login />
