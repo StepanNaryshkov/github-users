@@ -43,6 +43,8 @@
   }
   .table {
     text-align: left;
+    font-size: 15px;
+    line-height: 30px;
   }
   .th {
     padding-right: 20px;
@@ -101,24 +103,24 @@
       <p>{$film.Plot}</p>
       <table class="table">
         <tbody>
-        {#if $film.Actors}
-          <tr>
-            <th class="th">Starring:</th>
-            <td>{$film.Actors}</td>
-          </tr>
-        {/if}
-        {#if $film.Production}
-          <tr>
-            <th class="th">Production company:</th>
-            <td>{$film.Production}</td>
-          </tr>
-        {/if}
-        {#if $film.Released}
-          <tr>
-            <th class="th">Release date:</th>
-            <td>{$film.Released}</td>
-          </tr>
-        {/if}
+          {#if $film.Actors}
+            <tr>
+              <th class="th">Starring:</th>
+              <td>{$film.Actors}</td>
+            </tr>
+          {/if}
+          {#if $film.Production}
+            <tr>
+              <th class="th">Production company:</th>
+              <td>{$film.Production}</td>
+            </tr>
+          {/if}
+          {#if $film.Released}
+            <tr>
+              <th class="th">Release date:</th>
+              <td>{$film.Released}</td>
+            </tr>
+          {/if}
         </tbody>
       </table>
     </article>
