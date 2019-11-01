@@ -1,0 +1,38 @@
+.error {
+    border: none;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d32f2f;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: all 0.2s;
+}
+.error_show {
+    transform: translateX(0);
+    opacity: 1;
+}
+.error__icon {
+    fill: #fff;
+    min-width: 20px;
+}
+
+.error__text {
+    font-size: 0.875rem;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01em;
+    display: flex;
+    color: #fff;
+    text-align: left;
+}
