@@ -40,6 +40,7 @@
     border-width: 1px;
     border-radius: 4px;
     margin-bottom: 25px;
+    box-sizing: border-box;
   }
   .icon {
     color: #fff;

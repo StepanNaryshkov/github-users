@@ -11,8 +11,11 @@
 
 <style>
   :global(body) {
-    box-sizing: border-box;
     background-color: #f5f5f5;
+    min-width: 320px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 </style>
 

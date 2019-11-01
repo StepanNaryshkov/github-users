@@ -16,10 +16,16 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 25px;
   }
   .img {
     border-radius: 50%;
     margin-right: 20px;
+  }
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
   .film {
     background: #fff;
@@ -54,15 +60,31 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    margin-left: 5px;
+  }
+  .label {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .input {
+    padding: 8px 14px;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1.1875em;
+    font-size: 1rem;
+    border-color: rgba(0, 0, 0, 0.23);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    margin-bottom: 25px;
   }
 </style>
 
 <div class="wrap">
-  <form on:submit|preventDefault={handleSubmit}>
+  <form on:submit|preventDefault={handleSubmit} class="form">
     <label for="filmName" class="label">
       Please, type a name of the film
     </label>
-    <input bind:value={_filmName} id="filmName" />
+    <input bind:value={_filmName} id="filmName" class="input" />
     <input type="submit" value="Submit" class="btn" />
   </form>
   {#if $film.Title}
@@ -79,18 +101,24 @@
       <p>{$film.Plot}</p>
       <table class="table">
         <tbody>
+        {#if $film.Actors}
           <tr>
             <th class="th">Starring:</th>
             <td>{$film.Actors}</td>
           </tr>
+        {/if}
+        {#if $film.Production}
           <tr>
             <th class="th">Production company:</th>
             <td>{$film.Production}</td>
           </tr>
+        {/if}
+        {#if $film.Released}
           <tr>
             <th class="th">Release date:</th>
             <td>{$film.Released}</td>
           </tr>
+        {/if}
         </tbody>
       </table>
     </article>
