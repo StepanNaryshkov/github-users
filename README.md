@@ -1,32 +1,14 @@
-# svelte app
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
 ## Demo
 
-[![Watch the video](public/app.png)](https://drive.google.com/file/d/1ZMs54N_0Q5FxgjuUGCd8uRVIhd9Xao20/view?usp=sharing)
+[![Watch the video](img/app.png)](https://drive.google.com/file/d/1ZMs54N_0Q5FxgjuUGCd8uRVIhd9Xao20/view?usp=sharing)
 
-## Performance result
-Network
+## Performance result:
 
-![from network tan](public/network.png)
+# [Svelte](https://github.com/StepanNaryshkov/movie-api/tree/svelte)
+Network:
+
+![from network tan](img/svelte/network.png)
 
 Performance results:
-![webpagetest](public/first-view-svelte.png)
-![webpagetest](public/first-view-svelte-2.png)
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+![webpagetest](img/svelte/first-view-svelte.png)
+![webpagetest](img/svelte/first-view-svelte-2.png)
