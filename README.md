@@ -7,11 +7,12 @@
 [![Watch the video](public/app.png)](https://drive.google.com/file/d/1ZMs54N_0Q5FxgjuUGCd8uRVIhd9Xao20/view?usp=sharing)
 
 ## Performance result
-Network
+Network:
 
 ![from network tan](public/network.png)
 
 Performance results:
+
 ![webpagetest](public/first-view-svelte.png)
 ![webpagetest](public/first-view-svelte-2.png)
 ## Get started
