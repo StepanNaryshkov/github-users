@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext} from 'react';
 import './index.css';
-import { setUserName } from '../../store/user/actionCreators';
-import { UserDispatch } from '../../routing/App'
+import {setUserName} from '../../store/user/actionCreators';
+import {UserDispatch} from '../../routing/App';
 
 export function Login() {
-  const [userName, handleUserNameField] = useState('');
+  const [userName, handleUserNameField] = useState(``);
   const dispatch = useContext(UserDispatch);
-  const submit = e => {
+  const submit = (e) => {
     e.preventDefault();
-    dispatch(setUserName(userName))
-  }
+    dispatch(setUserName(userName));
+  };
   return (
     <form className="login" onSubmit={submit}>
       <div className="login__icon">
@@ -31,14 +31,14 @@ export function Login() {
         id="username"
         required
         className="login__input"
-        onChange={e=> handleUserNameField(e.target.value)}
+        onChange={(e)=> handleUserNameField(e.target.value)}
         value={userName}
       />
       <input
         type="submit"
-        defaultValue="Sign in"
+        value="Sign in"
         className="login__btn"
       />
     </form>
-  )
+  );
 }

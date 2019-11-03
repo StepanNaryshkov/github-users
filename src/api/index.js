@@ -1,15 +1,15 @@
-import { useReducer, useContext } from 'react';
-import { appReducer, appInitialState } from './../store/app/app';
+import { useContext } from 'react';
 import { fetching, hasFetched, setError } from './../store/app/actionCreators';
 import { setFilm } from './../store/film/actionCreators';
-import { FilmDispatch } from '../routing/App'
+import { FilmDispatch, AppDispatch } from '../routing/App'
+
 const url = 'http://www.omdbapi.com/?apikey=c411534d&' // to generate a key please use http://www.omdbapi.com/
 
 export default function getFilm() {
-  const [state, dispatch] = useReducer(appReducer, appInitialState);
   const filmDispatch = useContext(FilmDispatch);
+  const appDispatch = useContext(AppDispatch);
   const makeRequest = async (searchTerm) => {
-    dispatch(fetching());
+    appDispatch(fetching());
     try {
       let response = await fetch(`${url}&t=${searchTerm}`, {
         method: 'GET',
@@ -18,14 +18,14 @@ export default function getFilm() {
       if (response.status === 200 && !result.Error) {
         filmDispatch(setFilm(result))
       } else {
-        dispatch(setError(result.Error));
+        appDispatch(setError(result.Error));
       }
 
-      dispatch(hasFetched());
+      appDispatch(hasFetched());
     } catch (e) {
-      dispatch(setError(e.message));
+      appDispatch(setError(e.message));
     }
   };
 
-  return [state, makeRequest];
+  return [makeRequest];
 };

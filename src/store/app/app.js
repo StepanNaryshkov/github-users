@@ -15,7 +15,7 @@ export function appReducer(state, action) {
     case CNST_APP.HAS_FETCHED:
       return {
         ...state,
-        isFetching: true
+        isFetching: false
       };
     case CNST_APP.SET_ERROR:
       return {

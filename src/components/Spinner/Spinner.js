@@ -1,4 +1,5 @@
 import React from "react";
+import './index.css';
 
 export function Spinner() {
   return (
@@ -13,5 +14,5 @@ export function Spinner() {
           strokeWidth="3.6"/>
       </svg>
     </div>
-  )
+  );
 }
