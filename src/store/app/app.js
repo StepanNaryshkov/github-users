@@ -1,8 +1,8 @@
-import { CNST_APP} from './actionTypes';
+import { CNST_APP } from './actionTypes';
 
 export const appInitialState = {
-  isFetching : false,
-  error : '',
+  isFetching: false,
+  error: ''
 };
 
 export function appReducer(state, action) {

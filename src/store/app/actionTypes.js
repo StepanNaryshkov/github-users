@@ -3,4 +3,4 @@ export const CNST_APP = {
   HAS_FETCHED: 'HAS_FETCHED',
   SET_ERROR: 'SET_ERROR',
   CLEAR_ERROR: 'CLEAR_ERROR'
-}
+};

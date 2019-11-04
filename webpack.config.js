@@ -1,18 +1,17 @@
-const path = require(`path`);
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: './src/index.js',
   output: {
-    filename: `bundle.js`,
-    // eslint-disable-next-line no-undef
-    path: path.join(__dirname, `public`)
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'public')
   },
   devServer: {
-    // eslint-disable-next-line no-undef
-    contentBase: path.join(__dirname, `public`),
+    contentBase: path.join(__dirname, 'public'),
     compress: false,
     open: true,
-    port: 3000,
+    port: 3000
   },
   module: {
     rules: [
@@ -20,14 +19,30 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: `babel-loader`,
-        },
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
+          'css-loader'
+        ]
       }
-    ],
+    ]
   },
-  devtool: `source-map`
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false
+    })
+  ],
+  devtool: 'source-map'
 };

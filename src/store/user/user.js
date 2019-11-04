@@ -1,7 +1,7 @@
 import { CNST_USER } from './actionTypes';
 
 export const userInitialState = {
-  userName : '',
+  userName: ''
 };
 
 export function userReducer(state, action) {
