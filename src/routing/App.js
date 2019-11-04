@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch
+  HashRouter as Router,
+  Switch,
+  Route
 } from 'react-router-dom';
 import './index.css';
 import { IsAuthUser } from './IsAuthUser';
@@ -34,10 +35,11 @@ export default function App() {
             <AppContext.Provider value={appState}>
               <AppDispatch.Provider value={appDispatch}>
 
-                <Router>
+                <Router basename='/'>
                   <Switch>
-                    <IsNotAuthUser path='/' component={Login} exact />
-                    <IsAuthUser path='/home' component={Home} />
+                    <IsNotAuthUser exact path='/' component={Login} />
+                    <IsAuthUser exact path='/home' component={Home} />
+                    <Route render={() => <h1>404 Error</h1>} />
                   </Switch>
                   <Error />
                   {isFetching && <Spinner />}

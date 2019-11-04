@@ -24,6 +24,7 @@ export default function getFilm() {
       appDispatch(hasFetched());
     } catch (e) {
       appDispatch(setError(e.message));
+      appDispatch(hasFetched());
     }
   };
 
