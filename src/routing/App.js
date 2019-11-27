@@ -16,6 +16,7 @@ import {appInitialState, appReducer} from '../store/app/app';
 
 export const UserContext = React.createContext();
 export const UserDispatch = React.createContext();
+
 export const FilmContext = React.createContext();
 
 export const FilmDispatch = React.createContext();
